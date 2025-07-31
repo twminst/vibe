@@ -16,7 +16,9 @@
     "@instructure/ui-icons": "^10.24.1",
     "@instructure/ui-prop-types": "^10.24.0",
     "@instructure/ui-utils": "^10.24.0",
+    "@types/codemirror": "^5.60.16",
     "@types/react-router-dom": "^5.3.3",
+    "@types/tinycolor2": "^1.4.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.7.1"

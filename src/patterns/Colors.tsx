@@ -98,29 +98,29 @@ export default function ColorsPattern() {
                   <Flex direction="column" gap="moduleElements">
                     <View as="div" background="success" padding="small" borderRadius="medium" shadow="resting">
                       <Flex direction="column" gap="x-small">
-                        <Heading level="h5" variant="label" color="success-inverse">background="success"</Heading>
-                        <Text variant="content" color="success-inverse">Success states, positive feedback, completed tasks</Text>
+                        <Heading level="h5" variant="label" color="primary-inverse">background="success"</Heading>
+                        <Text variant="content" color="primary-inverse">Success states, positive feedback, completed tasks</Text>
                       </Flex>
                     </View>
 
                     <View as="div" background="warning" padding="small" borderRadius="medium" shadow="resting">
                       <Flex direction="column" gap="x-small">
-                        <Heading level="h5" variant="label" color="warning-inverse">background="warning"</Heading>
-                        <Text variant="content" color="warning-inverse">Warning states, caution messages, pending actions</Text>
+                        <Heading level="h5" variant="label" color="primary-inverse">background="warning"</Heading>
+                        <Text variant="content" color="primary-inverse">Warning states, caution messages, pending actions</Text>
                       </Flex>
                     </View>
 
                     <View as="div" background="danger" padding="small" borderRadius="medium" shadow="resting">
                       <Flex direction="column" gap="x-small">
-                        <Heading level="h5" variant="label" color="danger-inverse">background="danger"</Heading>
-                        <Text variant="content" color="danger-inverse">Error states, critical issues, destructive actions</Text>
+                        <Heading level="h5" variant="label" color="primary-inverse">background="danger"</Heading>
+                        <Text variant="content" color="primary-inverse">Error states, critical issues, destructive actions</Text>
                       </Flex>
                     </View>
 
                     <View as="div" background="alert" padding="small" borderRadius="medium" shadow="resting">
                       <Flex direction="column" gap="x-small">
-                        <Heading level="h5" variant="label" color="alert-inverse">background="alert"</Heading>
-                        <Text variant="content" color="alert-inverse">Important notifications, system alerts, attention-grabbing content</Text>
+                        <Heading level="h5" variant="label" color="primary-inverse">background="alert"</Heading>
+                        <Text variant="content" color="primary-inverse">Important notifications, system alerts, attention-grabbing content</Text>
                       </Flex>
                     </View>
                   </Flex>
@@ -185,7 +185,7 @@ export default function ColorsPattern() {
 
                     <View>
                       <Flex direction="column" gap="x-small">
-                        <Heading level="h5" variant="label" color="success">color="success"</Heading>
+                        <Heading level="h5" variant="label" color="primary">color="success"</Heading>
                         <Text variant="content" color="success">Green text for positive feedback and success states</Text>
                       </Flex>
                     </View>
@@ -196,21 +196,21 @@ export default function ColorsPattern() {
                   <Flex direction="column" gap="moduleElements">
                     <View>
                       <Flex direction="column" gap="x-small">
-                        <Heading level="h5" variant="label" color="warning">color="warning"</Heading>
+                        <Heading level="h5" variant="label" color="primary">color="warning"</Heading>
                         <Text variant="content" color="warning">Orange text for caution messages and pending states</Text>
                       </Flex>
                     </View>
 
                     <View>
                       <Flex direction="column" gap="x-small">
-                        <Heading level="h5" variant="label" color="danger">color="danger"</Heading>
+                        <Heading level="h5" variant="label" color="primary">color="danger"</Heading>
                         <Text variant="content" color="danger">Red text for errors, validation messages, and critical issues</Text>
                       </Flex>
                     </View>
 
                     <View>
                       <Flex direction="column" gap="x-small">
-                        <Heading level="h5" variant="label" color="alert">color="alert"</Heading>
+                        <Heading level="h5" variant="label" color="primary">color="alert"</Heading>
                         <Text variant="content" color="alert">Blue text for important notifications and system messages</Text>
                       </Flex>
                     </View>
@@ -251,8 +251,8 @@ export default function ColorsPattern() {
 
                     <View>
                       <Flex direction="column" gap="x-small">
-                        <Heading level="h5" variant="label" color="success-inverse">color="success-inverse"</Heading>
-                        <Text variant="content" color="success-inverse">Light text for success backgrounds</Text>
+                        <Heading level="h5" variant="label" color="primary-inverse">color="success-inverse"</Heading>
+                        <Text variant="content" color="primary-inverse">Light text for success backgrounds</Text>
                       </Flex>
                     </View>
                   </Flex>
@@ -262,15 +262,15 @@ export default function ColorsPattern() {
                   <Flex direction="column" gap="moduleElements">
                     <View>
                       <Flex direction="column" gap="x-small">
-                        <Heading level="h5" variant="label" color="warning-inverse">color="warning-inverse"</Heading>
-                        <Text variant="content" color="warning-inverse">Light text for warning backgrounds</Text>
+                        <Heading level="h5" variant="label" color="primary-inverse">color="warning-inverse"</Heading>
+                        <Text variant="content" color="primary-inverse">Light text for warning backgrounds</Text>
                       </Flex>
                     </View>
 
                     <View>
                       <Flex direction="column" gap="x-small">
-                        <Heading level="h5" variant="label" color="danger-inverse">color="danger-inverse"</Heading>
-                        <Text variant="content" color="danger-inverse">Light text for danger backgrounds</Text>
+                        <Heading level="h5" variant="label" color="primary-inverse">color="danger-inverse"</Heading>
+                        <Text variant="content" color="primary-inverse">Light text for danger backgrounds</Text>
                       </Flex>
                     </View>
                   </Flex>
@@ -442,9 +442,9 @@ export default function ColorsPattern() {
                   margin="0 0 moduleElements 0"
                 >
                   <Flex direction="column" gap="small">
-                    <Heading level="h5" variant="label" color="success-inverse">Success Alert</Heading>
-                    <Text variant="content" color="success-inverse">Success background with inverse text</Text>
-                    <Text variant="contentSmall" color="success-inverse">For positive feedback messages</Text>
+                    <Heading level="h5" variant="label" color="primary-inverse">Success Alert</Heading>
+                    <Text variant="content" color="primary-inverse">Success background with inverse text</Text>
+                    <Text variant="contentSmall" color="primary-inverse">For positive feedback messages</Text>
                   </Flex>
                 </View>
               </Grid.Col>
@@ -461,7 +461,7 @@ export default function ColorsPattern() {
                   margin="0 0 moduleElements 0"
                 >
                   <Flex direction="column" gap="small">
-                    <Heading level="h5" variant="label" color="danger">Error State</Heading>
+                    <Heading level="h5" variant="label" color="primary">Error State</Heading>
                     <Text variant="content">Primary background, danger border and text</Text>
                     <Text variant="contentSmall" color="secondary">For validation errors and warnings</Text>
                   </Flex>
@@ -488,7 +488,9 @@ export default function ColorsPattern() {
             <Grid.Row>
               <Grid.Col width={4}>
                 <View as="div" margin="0 0 moduleElements 0">
-                  <Text variant="contentImportant" margin="0 0 small 0">Background Colors</Text>
+                  <View margin="0 0 small 0">
+                    <Text variant="contentImportant">Background Colors</Text>
+                  </View>
                   <List as="ul" size="small" itemSpacing="x-small">
                     <ListItem>primary</ListItem>
                     <ListItem>secondary</ListItem>
@@ -503,7 +505,9 @@ export default function ColorsPattern() {
 
               <Grid.Col width={4}>
                 <View as="div" margin="0 0 moduleElements 0">
-                  <Text variant="contentImportant" margin="0 0 small 0">Text Colors</Text>
+                  <View margin="0 0 small 0">
+                    <Text variant="contentImportant">Text Colors</Text>
+                  </View>
                   <List as="ul" size="small" itemSpacing="x-small">
                     <ListItem>primary</ListItem>
                     <ListItem>secondary</ListItem>
@@ -522,7 +526,9 @@ export default function ColorsPattern() {
 
               <Grid.Col width={4}>
                 <View as="div" margin="0 0 moduleElements 0">
-                  <Text variant="contentImportant" margin="0 0 small 0">Border Colors</Text>
+                  <View margin="0 0 small 0">
+                    <Text variant="contentImportant">Border Colors</Text>
+                  </View>
                   <List as="ul" size="small" itemSpacing="x-small">
                     <ListItem>primary</ListItem>
                     <ListItem>secondary</ListItem>

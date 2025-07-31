@@ -23,31 +23,14 @@ import {
   IconEmailLine,
   IconEmailSolid,
   IconEditLine,
-  IconEditSolid,
   IconTrashLine,
-  IconTrashSolid,
   IconDownloadLine,
-  IconDownloadSolid,
-  IconUploadLine,
-  IconUploadSolid,
   IconSearchLine,
-  IconSearchSolid,
   IconEyeLine,
-  IconEyeSolid,
   IconStarLine,
-  IconStarSolid,
   IconLikeLine,
-  IconLikeSolid,
-  IconSpeedGraderLine,
-  IconSpeedGraderSolid,
   IconQuizLine,
-  IconQuizSolid,
-  IconAnnouncementLine,
-  IconAnnouncementSolid,
-  IconQuestionLine,
-  IconQuestionSolid,
   IconInfoLine,
-  IconInfoSolid,
   IconArrowOpenEndLine,
   IconArrowOpenDownLine,
   IconArrowOpenUpLine,
@@ -219,7 +202,7 @@ export default function IconsPattern() {
                   <Text>Missing rubric - needs attention</Text>
                 </Flex>
                 <Flex gap="x-small" alignItems="center">
-                  <IconXLine color="danger" />
+                  <IconXLine color="error" />
                   <Text>Submission failed - retry required</Text>
                 </Flex>
               </Flex>
@@ -259,8 +242,8 @@ export default function IconsPattern() {
                   <Text size="x-small">warning</Text>
                 </Flex>
                 <Flex direction="column" gap="x-small" alignItems="center">
-                  <IconXLine color="danger" />
-                  <Text size="x-small">danger</Text>
+                  <IconXLine color="error" />
+                  <Text size="x-small">error</Text>
                 </Flex>
                 <Flex direction="column" gap="x-small" alignItems="center">
                   <IconHomeLine color="primary" />
@@ -423,25 +406,25 @@ export default function IconsPattern() {
               <Grid.Col width={3}>
                 <Flex direction="column" gap="small" alignItems="center">
                   <IconDocumentLine size="medium" />
-                  <Text size="x-small" textAlign="center">Document</Text>
+                  <Text size="x-small">Document</Text>
                 </Flex>
               </Grid.Col>
               <Grid.Col width={3}>
                 <Flex direction="column" gap="small" alignItems="center">
                   <IconUserLine size="medium" />
-                  <Text size="x-small" textAlign="center">User</Text>
+                  <Text size="x-small">User</Text>
                 </Flex>
               </Grid.Col>
               <Grid.Col width={3}>
                 <Flex direction="column" gap="small" alignItems="center">
                   <IconCalendarMonthLine size="medium" />
-                  <Text size="x-small" textAlign="center">Calendar</Text>
+                  <Text size="x-small">Calendar</Text>
                 </Flex>
               </Grid.Col>
               <Grid.Col width={3}>
                 <Flex direction="column" gap="small" alignItems="center">
                   <IconSettingsLine size="medium" />
-                  <Text size="x-small" textAlign="center">Settings</Text>
+                  <Text size="x-small">Settings</Text>
                 </Flex>
               </Grid.Col>
             </Grid.Row>
@@ -449,25 +432,25 @@ export default function IconsPattern() {
               <Grid.Col width={3}>
                 <Flex direction="column" gap="small" alignItems="center">
                   <IconGradebookLine size="medium" />
-                  <Text size="x-small" textAlign="center">Gradebook</Text>
+                  <Text size="x-small">Gradebook</Text>
                 </Flex>
               </Grid.Col>
               <Grid.Col width={3}>
                 <Flex direction="column" gap="small" alignItems="center">
                   <IconDiscussionLine size="medium" />
-                  <Text size="x-small" textAlign="center">Discussion</Text>
+                  <Text size="x-small">Discussion</Text>
                 </Flex>
               </Grid.Col>
               <Grid.Col width={3}>
                 <Flex direction="column" gap="small" alignItems="center">
                   <IconEmailLine size="medium" />
-                  <Text size="x-small" textAlign="center">Email</Text>
+                  <Text size="x-small">Email</Text>
                 </Flex>
               </Grid.Col>
               <Grid.Col width={3}>
                 <Flex direction="column" gap="small" alignItems="center">
                   <IconQuizLine size="medium" />
-                  <Text size="x-small" textAlign="center">Quiz</Text>
+                  <Text size="x-small">Quiz</Text>
                 </Flex>
               </Grid.Col>
             </Grid.Row>
@@ -475,25 +458,25 @@ export default function IconsPattern() {
               <Grid.Col width={3}>
                 <Flex direction="column" gap="small" alignItems="center">
                   <IconEditLine size="medium" />
-                  <Text size="x-small" textAlign="center">Edit</Text>
+                  <Text size="x-small">Edit</Text>
                 </Flex>
               </Grid.Col>
               <Grid.Col width={3}>
                 <Flex direction="column" gap="small" alignItems="center">
                   <IconTrashLine size="medium" />
-                  <Text size="x-small" textAlign="center">Delete</Text>
+                  <Text size="x-small">Delete</Text>
                 </Flex>
               </Grid.Col>
               <Grid.Col width={3}>
                 <Flex direction="column" gap="small" alignItems="center">
                   <IconDownloadLine size="medium" />
-                  <Text size="x-small" textAlign="center">Download</Text>
+                  <Text size="x-small">Download</Text>
                 </Flex>
               </Grid.Col>
               <Grid.Col width={3}>
                 <Flex direction="column" gap="small" alignItems="center">
                   <IconSearchLine size="medium" />
-                  <Text size="x-small" textAlign="center">Search</Text>
+                  <Text size="x-small">Search</Text>
                 </Flex>
               </Grid.Col>
             </Grid.Row>
@@ -501,25 +484,25 @@ export default function IconsPattern() {
               <Grid.Col width={3}>
                 <Flex direction="column" gap="small" alignItems="center">
                   <IconStarLine size="medium" />
-                  <Text size="x-small" textAlign="center">Star</Text>
+                  <Text size="x-small">Star</Text>
                 </Flex>
               </Grid.Col>
               <Grid.Col width={3}>
                 <Flex direction="column" gap="small" alignItems="center">
                   <IconHeartLine size="medium" />
-                  <Text size="x-small" textAlign="center">Heart</Text>
+                  <Text size="x-small">Heart</Text>
                 </Flex>
               </Grid.Col>
               <Grid.Col width={3}>
                 <Flex direction="column" gap="small" alignItems="center">
                   <IconLikeLine size="medium" />
-                  <Text size="x-small" textAlign="center">Like</Text>
+                  <Text size="x-small">Like</Text>
                 </Flex>
               </Grid.Col>
               <Grid.Col width={3}>
                 <Flex direction="column" gap="small" alignItems="center">
                   <IconEyeLine size="medium" />
-                  <Text size="x-small" textAlign="center">View</Text>
+                  <Text size="x-small">View</Text>
                 </Flex>
               </Grid.Col>
             </Grid.Row>

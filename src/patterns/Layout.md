@@ -8,7 +8,7 @@
 
 ## IMPORTANT
 
-- For padding and gaps, do NOT use legacy "small, medium, large" style values
+- For padding, margin, and gap values ONLY, do NOT use legacy "small, medium, large" style values
 - Use **Semantic Spacing Tokens** or **Numeric Scale**
 - Instead of **medium** use **sectionElements** / **paddingCardLarge** (Preferred) or **space24**
 
