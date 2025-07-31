@@ -3,7 +3,7 @@ import { Link as RouterLink } from 'react-router-dom'
 
 const patterns = [
   { name: 'Template', path: '/patterns/template', description: 'Documentation template for creating consistent UI pattern pages' },
-  { name: 'Layout', path: '/patterns/layout', description: 'Content structure and hierarchy best practices' },
+  { name: 'Layout', path: '/patterns/layout', description: '(OUTDATED) Content structure and hierarchy best practices' },
   { name: 'Text', path: '/patterns/text', description: 'Semantic text variants and accessibility guidelines' },
   { name: 'Colors', path: '/patterns/colors', description: 'Semantic color tokens for branding, accessibility, and consistent theming' },
   { name: 'Buttons', path: '/patterns/buttons', description: 'Interactive button components with semantic colors, sizes, and proper spacing' },
@@ -12,7 +12,7 @@ const patterns = [
 ]
 
 const prototypes = [
-  { name: 'Sample', path: '/prototypes/sample', description: 'Basic InstUI components showcase' },
+  { name: 'Sample', path: '/prototypes/sample', description: 'Original no-context test' },
   // Add new prototypes here
 ]
 
