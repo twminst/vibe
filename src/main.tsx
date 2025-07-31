@@ -7,7 +7,7 @@ import PrototypeRoutes from './routes/AppRoutes'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <InstUISettingsProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/vibe">
         <PrototypeRoutes />
       </BrowserRouter>
     </InstUISettingsProvider>
