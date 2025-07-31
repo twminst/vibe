@@ -1,69 +1,100 @@
-# React + TypeScript + Vite
+# Vibe Prototyping
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based prototyping environment for exploring design system components and patterns. Built as an experimental workspace for rapid UI exploration and testing.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The prototypes are automatically deployed to: **https://twminst.github.io/vibe/**
 
-## Expanding the ESLint configuration
+## 🛠 Development
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
+- Node.js 18+
+- npm
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Setup
+```bash
+# Install dependencies (note: requires legacy peer deps for React 19 compatibility)
+npm install --legacy-peer-deps
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+# Start development server
+npm run dev
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Run linting
+npm run lint
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Project Structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+src/
+├── routes/
+│   ├── AppIndex.tsx                    # Main prototype directory
+│   └── AppRoutes.tsx                   # Routing configuration
+├── prototypes/
+│   └── [prototype-name]/
+│       └── index.tsx                   # Individual prototype experiments
+├── patterns/
+│   ├── [pattern-name].tsx              # Component pattern demos
+│   └── [pattern-name].md               # Pattern documentation
+└── shared/                             # Reusable utilities and components
+    ├── components/
+    ├── layouts/
+    ├── data/
+    └── utils/
+```
+
+## 🎨 Adding New Experiments
+
+### Prototypes
+Create a new prototype experiment:
+
+1. Add component: `src/prototypes/[name]/index.tsx`
+2. Add route in `routes/AppRoutes.tsx`: `<Route path="/[name]" element={<ComponentName />} />`
+3. Add to directory in `routes/AppIndex.tsx` prototypes array
+
+### Patterns
+Document a new UI pattern:
+
+1. Create component: `src/patterns/[name].tsx`
+2. Create docs: `src/patterns/[name].md`
+3. Add route in `routes/AppRoutes.tsx`: `<Route path="/patterns/[name]" element={<PatternName />} />`
+4. Add to directory in `routes/AppIndex.tsx` patterns array
+
+## 🔧 Tech Stack
+
+- **React 19** - Latest React features and concurrent rendering
+- **TypeScript 5.8** - Type safety and developer experience
+- **Vite 7** - Fast development and optimized builds
+- **React Router 7** - Client-side routing
+- **Third-party UI Library** - Component foundation and design system
+- **GitHub Actions** - Automated deployment to GitHub Pages
+
+## 📝 Development Notes
+
+- Uses `--legacy-peer-deps` for React 19 compatibility with third-party components
+- TypeScript compilation runs before Vite bundling
+- ESLint configured with React and TypeScript best practices
+- Automated deployment on every push to main branch
+- Components follow design system patterns and accessibility guidelines
+
+## 🚦 Deployment
+
+The project automatically deploys to GitHub Pages via GitHub Actions. Every push to the main branch triggers:
+
+1. Dependency installation with legacy peer deps support
+2. TypeScript compilation and type checking
+3. Production build with Vite
+4. Deployment to GitHub Pages
+
+No manual deployment steps required - just push your code!
+
+## 🎯 Purpose
+
+This is a personal experimentation space for UI development, not intended for production use. It serves as a testing ground for exploring component patterns, design systems, and modern React development practices.
