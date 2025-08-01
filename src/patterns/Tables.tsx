@@ -173,9 +173,9 @@ function ComprehensiveTable() {
                       <Table caption={`Comprehensive assignment list: sorted by ${sortBy} in ${direction} order`} layout={layout} {...props} >
                         <Table.Head renderSortLabel={<ScreenReaderContent>Sort by</ScreenReaderContent>} >
                           <Table.Row>
-                            <Table.RowHeader id="select-all" width="60px" textAlign="center">
+                            <Table.ColHeader id="select-all" width="60px" textAlign="center">
                               <Checkbox label={<ScreenReaderContent>Select all assignments</ScreenReaderContent>} checked={isAllSelected} indeterminate={isSomeSelected} onChange={handleSelectAll} />
-                            </Table.RowHeader>
+                            </Table.ColHeader>
                             <Table.ColHeader id="title" width="30%" textAlign="start" onRequestSort={handleSort} sortDirection={sortBy === 'title' ? direction : 'none'}>
                               Title
                             </Table.ColHeader>
@@ -199,53 +199,32 @@ function ComprehensiveTable() {
                         <Table.Body>
                           {paginatedData.map((assignment) => (
                             <Table.Row key={assignment.id}>
-                              <Table.Cell textAlign="center">
+                              <Table.RowHeader>
                                 <Checkbox 
                                   label={<ScreenReaderContent>Select {assignment.title}</ScreenReaderContent>}
                                   checked={selectedRows.has(assignment.id)}
                                   onChange={() => handleRowSelect(assignment.id)}
                                 />
+                              </Table.RowHeader>
+                              <Table.Cell textAlign={layout === 'stacked' ? 'start' : 'start'}>
+                                <Text weight="bold">{assignment.title}</Text>
                               </Table.Cell>
-                              <Table.Cell>
-                                <Responsive
-                                  query={{ small: { maxWidth: '40rem' } }}
-                                  props={{ small: { textAlign: 'start' }, large: { textAlign: 'start' } }}
-                                >
-                                  {(textProps) => (
-                                    <Text weight="bold" {...textProps}>{assignment.title}</Text>
-                                  )}
-                                </Responsive>
+                              <Table.Cell textAlign={layout === 'stacked' ? 'start' : 'start'}>
+                                <Text>{assignment.course}</Text>
                               </Table.Cell>
-                              <Table.Cell>
-                                <Responsive
-                                  query={{ small: { maxWidth: '40rem' } }}
-                                  props={{ small: { textAlign: 'start' }, large: { textAlign: 'start' } }}
-                                >
-                                  {(textProps) => (
-                                    <Text {...textProps}>{assignment.course}</Text>
-                                  )}
-                                </Responsive>
+                              <Table.Cell textAlign={layout === 'stacked' ? 'start' : 'start'}>
+                                <Text>{assignment.dueDate}</Text>
                               </Table.Cell>
-                              <Table.Cell>
-                                <Responsive
-                                  query={{ small: { maxWidth: '40rem' } }}
-                                  props={{ small: { textAlign: 'start' }, large: { textAlign: 'start' } }}
-                                >
-                                  {(textProps) => (
-                                    <Text {...textProps}>{assignment.dueDate}</Text>
-                                  )}
-                                </Responsive>
-                              </Table.Cell>
-                              <Table.Cell textAlign="center">
+                              <Table.Cell textAlign={layout === 'stacked' ? 'start' : 'center'}>
                                 <Text>{assignment.points}</Text>
                               </Table.Cell>
-                              <Table.Cell textAlign="center">
+                              <Table.Cell textAlign={layout === 'stacked' ? 'start' : 'center'}>
                                 {assignment.status === 'Published' && <IconPublishSolid color="success" size="x-small" />}
                                 {assignment.status === 'Concluded' && <IconCalendarReservedLine color="primary" size="x-small" />}
                                 {assignment.status === 'Unpublished' && <IconUnpublishedLine color="secondary" size="x-small" />}
                                 <ScreenReaderContent>{assignment.status}</ScreenReaderContent>
                               </Table.Cell>
-                              <Table.Cell textAlign="center">
+                              <Table.Cell textAlign={layout === 'stacked' ? 'start' : 'center'}>
                                 <Text>{assignment.submissions}</Text>
                               </Table.Cell>
                             </Table.Row>

@@ -1,8 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import AppIndex from './AppIndex'
 import SamplePrototype from '../prototypes/sample'
-import StudentDashboard from '../prototypes/student-dashboard'
-import TableHeaderTest from '../prototypes/table-header-test'
 import LayoutPattern from '../patterns/Layout'
 import TextPattern from '../patterns/Text'
 import ColorsPattern from '../patterns/Colors'
@@ -19,8 +17,6 @@ export default function AppRoutes() {
     <Routes>
       <Route path="/" element={<AppIndex />} />
       <Route path="/prototypes/sample" element={<SamplePrototype />} />
-      <Route path="/prototypes/student-dashboard" element={<StudentDashboard />} />
-      <Route path="/prototypes/table-header-test" element={<TableHeaderTest />} />
       <Route path="/patterns/layout" element={<LayoutPattern />} />
       <Route path="/patterns/text" element={<TextPattern />} />
       <Route path="/patterns/colors" element={<ColorsPattern />} />
