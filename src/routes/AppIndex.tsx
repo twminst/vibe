@@ -39,7 +39,7 @@ export default function AppIndex() {
           {/* PAGE HEADER */}
           <View as="header" margin="0 0 sections 0">
             <Heading level="h1" variant={headingVariant}>
-              Canvas Prototype System
+              Canvas Prototypes
             </Heading>
             <Text variant="descriptionPage">
               100% Vibe Coded InstUI
