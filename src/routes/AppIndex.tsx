@@ -42,7 +42,7 @@ export default function AppIndex() {
               Canvas Prototype System
             </Heading>
             <Text variant="descriptionPage">
-              Interactive design system showcasing InstUI components and patterns for rapid Canvas prototyping
+              100% Vibe Coded InstUI
             </Text>
           </View>
 
@@ -53,7 +53,7 @@ export default function AppIndex() {
                 Patterns
               </Heading>
               <Text variant="descriptionSection">
-                Design pattern contexts the agent understands
+                Design context for the agent
               </Text>
             </View>
 
