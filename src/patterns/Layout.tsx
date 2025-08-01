@@ -1,661 +1,476 @@
-import { View, Heading, Text, Flex, Grid, Button, Badge, Avatar, IconButton } from '@instructure/ui'
-import { IconMoreSolid } from '@instructure/ui-icons'
+import { View, Heading, Text, Button, Flex, Grid, Responsive } from '@instructure/ui'
+import { IconAddLine, IconEditLine, IconSettingsLine } from '@instructure/ui-icons'
+import { useState } from 'react'
 
 export default function LayoutPattern() {
+  const [interactiveState, setInteractiveState] = useState(false)
+
   return (
-    <View as="main" maxWidth="1100px" width="100%" margin="0 auto">
-      <Flex as="div" direction="column" gap="sections">
-        
-        {/* Pattern Header */}
-        <Flex as="section" direction="column" gap="sectionElements">
-          <View as="div">
-            <Heading level="h1" variant="titlePageDesktop">
-              Layout & Card Pattern
-            </Heading>
-            <Text variant="descriptionPage">
-              Consistent content structure, visual hierarchy, and card-based layouts for Canvas prototypes
-            </Text>
-          </View>
-        </Flex>
+    <Responsive
+      query={{
+        small: { maxWidth: '767px' },
+        large: { minWidth: '768px' }
+      }}
+      props={{
+        small: { padding: 'paddingCardSmall', headingVariant: 'titlePageMobile' },
+        large: { padding: 'paddingCardLarge', headingVariant: 'titlePageDesktop' }
+      }}
+    >
+      {(props) => {
+        const { headingVariant, ...viewProps } = props as any
+        return (
+        <View as="div" maxWidth="1100px" margin="0 auto" {...viewProps}>
+      {/* PAGE HEADER */}
+      <View as="header" margin="0 0 sections 0">
+        <Heading level="h1" variant={headingVariant}>
+          Building Layouts with Flex and View Components
+        </Heading>
+        <Text variant="descriptionPage">
+          Comprehensive guide to creating consistent, responsive layouts using InstUI's Flex, View, and Grid components with semantic spacing tokens.
+        </Text>
+      </View>
 
-        {/* Core Layout Structure */}
-        <Flex as="section" direction="column" gap="sectionElements">
-          <View as="div">
-            <Heading level="h2" variant="titleSection">
-              Core Layout Structure
-            </Heading>
-            <Text variant="descriptionSection">
-              Semantic HTML structure with proper heading hierarchy and spacing
-            </Text>
-          </View>
-          
-          <Flex as="div" direction="column" gap="moduleElements">
-            <View as="div">
-              <Heading level="h3" variant="titleModule">
-                Main Container Pattern
-              </Heading>
-              <Text variant="content">
-                All content wrapped in centered container with maximum width
-              </Text>
+      {/* FLEX LAYOUTS SECTION */}
+      <View as="section" margin="0 0 sections 0">
+        <View as="header" margin="0 0 sectionElements 0">
+          <Heading level="h2" variant="titleSection">
+            Flex Layouts with Semantic Spacing
+          </Heading>
+          <Text variant="descriptionSection">
+            Vertical and horizontal layouts using Flex containers with semantic spacing tokens
+          </Text>
+        </View>
+
+        <View as="div" background="primary" padding="paddingCardMedium" borderRadius="medium" borderWidth="small" borderColor="secondary" shadow="resting">
+          <Flex direction="column" gap="moduleElements">
+            {/* Vertical Layout */}
+            <View>
+              <View as="div" margin="0 0 moduleElements 0">
+                <Heading level="h5" variant="label">Vertical Layout (sections gap)</Heading>
+              </View>
+              <Flex direction="column" gap="sections">
+                <View as="div" background="secondary" padding="paddingCardSmall" borderRadius="medium">
+                  <Text>Section 1 - 36px gap below</Text>
+                </View>
+                <View as="div" background="secondary" padding="paddingCardSmall" borderRadius="medium">
+                  <Text>Section 2 - Major page sections</Text>
+                </View>
+              </Flex>
             </View>
-            
-            <View 
-              as="div" 
-              background="secondary" 
-              padding="paddingCardMedium" 
-              borderRadius="medium"
-              borderWidth="small"
-              borderColor="primary"
-            >
-              <Text variant="content">
-                View as="main" maxWidth="1100px" width="100%" margin="0 auto"
-              </Text>
+
+            {/* Horizontal Layout */}
+            <View>
+              <View as="div" margin="0 0 moduleElements 0">
+                <Heading level="h5" variant="label">Horizontal Layout (moduleElements gap)</Heading>
+              </View>
+              <Flex gap="moduleElements" wrap="wrap">
+                <Button>Primary Action</Button>
+                <Button color="secondary">Secondary Action</Button>
+                <Button color="success">Success Action</Button>
+              </Flex>
+            </View>
+
+            {/* Section Elements Gap */}
+            <View>
+              <View as="div" margin="0 0 moduleElements 0">
+                <Heading level="h5" variant="label">Section Elements Gap (24px)</Heading>
+              </View>
+              <Flex direction="column" gap="sectionElements">
+                <View>
+                  <Heading level="h4" variant="titleCardMini">Section Header</Heading>
+                </View>
+                <View as="div" background="secondary" padding="paddingCardSmall" borderRadius="medium">
+                  <Text>Section content with proper 24px spacing from header</Text>
+                </View>
+              </Flex>
             </View>
           </Flex>
-        </Flex>
+        </View>
+      </View>
 
-        {/* Card System Examples */}
-        <Flex as="section" direction="column" gap="sectionElements">
-          <View as="div">
-            <Heading level="h2" variant="titleSection">
-              Card System
-            </Heading>
-            <Text variant="descriptionSection">
-              Visual containers with consistent styling for organizing content
-            </Text>
-          </View>
+      {/* CARD SYSTEM SECTION */}
+      <View as="section" margin="0 0 sections 0">
+        <View as="header" margin="0 0 sectionElements 0">
+          <Heading level="h2" variant="titleSection">
+            Card System with Proper Structure
+          </Heading>
+          <Text variant="descriptionSection">
+            Primary and secondary cards with consistent styling and proper HTML structure using as="div"
+          </Text>
+        </View>
 
-          {/* Primary Cards */}
-          <Flex as="div" direction="column" gap="moduleElements">
-            <View as="div">
-              <Heading level="h3" variant="titleModule">
-                Primary Cards (White Background)
-              </Heading>
-              <Text variant="content">
-                Main content, important information, primary data display
-              </Text>
-            </View>
-            
-            <Grid colSpacing="medium" rowSpacing="medium">
-              <Grid.Row>
-                <Grid.Col width={4}>
-                  <View 
-                    as="div" 
-                    background="primary" 
-                    padding="paddingCardMedium" 
-                    borderRadius="medium"
-                  >
-                    <Heading level="h4" variant="titleCardRegular">Basic Primary Card</Heading>
-                    <Text variant="content">Standard white background card</Text>
-                  </View>
-                </Grid.Col>
-                <Grid.Col width={4}>
-                  <View 
-                    as="div" 
-                    background="primary" 
-                    padding="paddingCardMedium" 
-                    borderRadius="medium"
-                    borderWidth="small"
-                    borderColor="secondary"
-                  >
-                    <Heading level="h4" variant="titleCardRegular">Primary + Border</Heading>
-                    <Text variant="content">Defined boundaries and structure</Text>
-                  </View>
-                </Grid.Col>
-                <Grid.Col width={4}>
-                  <View 
-                    as="div" 
-                    background="primary" 
-                    padding="paddingCardMedium" 
-                    borderRadius="medium"
-                    shadow="resting"
-                  >
-                    <Heading level="h4" variant="titleCardRegular">Primary + Shadow</Heading>
-                    <Text variant="content">Elevated importance and interactivity</Text>
-                  </View>
-                </Grid.Col>
-              </Grid.Row>
-            </Grid>
-          </Flex>
-
-          {/* Secondary Cards */}
-          <Flex as="div" direction="column" gap="moduleElements">
-            <View as="div">
-              <Heading level="h3" variant="titleModule">
-                Secondary Cards (Gray Background)
-              </Heading>
-              <Text variant="content">
-                Supporting content, backgrounds, secondary information
-              </Text>
-            </View>
-            
-            <Grid colSpacing="medium" rowSpacing="medium">
-              <Grid.Row>
-                <Grid.Col width={6}>
-                  <View 
-                    as="div" 
-                    background="secondary" 
-                    padding="paddingCardMedium" 
-                    borderRadius="medium"
-                  >
-                    <Heading level="h4" variant="titleCardRegular">Basic Secondary Card</Heading>
-                    <Text variant="content">Supporting content and backgrounds</Text>
-                  </View>
-                </Grid.Col>
-                <Grid.Col width={6}>
-                  <View 
-                    as="div" 
-                    background="secondary" 
-                    padding="paddingCardMedium" 
-                    borderRadius="medium"
-                    borderWidth="small"
-                    borderColor="primary"
-                  >
-                    <Heading level="h4" variant="titleCardRegular">Secondary + Border</Heading>
-                    <Text variant="content">Structured secondary content</Text>
-                  </View>
-                </Grid.Col>
-              </Grid.Row>
-            </Grid>
-          </Flex>
-        </Flex>
-
-        {/* Grid Layout Examples */}
-        <Flex as="section" direction="column" gap="sectionElements">
-          <View as="div">
-            <Heading level="h2" variant="titleSection">
-              Grid Layouts
-            </Heading>
-            <Text variant="descriptionSection">
-              Organizing multiple cards and content blocks with responsive grids
-            </Text>
-          </View>
-
-          {/* Responsive Card Grid */}
-          <Flex as="div" direction="column" gap="moduleElements">
-            <View as="div">
-              <Heading level="h3" variant="titleModule">
-                Responsive Card Grid
-              </Heading>
-              <Text variant="content">
-                Cards that adapt to different screen sizes
-              </Text>
-            </View>
-            
-            <Grid colSpacing="medium" rowSpacing="medium" startAt="medium">
-              <Grid.Row>
-                <Grid.Col width={{medium: 6, large: 4}}>
-                  <View background="primary" padding="paddingCardMedium" borderRadius="medium" shadow="resting">
-                    <Heading level="h4" variant="titleCardRegular">Course 1</Heading>
-                    <Text variant="content">Biology 101</Text>
-                    <Text variant="contentSmall" color="success">Completed</Text>
-                  </View>
-                </Grid.Col>
-                <Grid.Col width={{medium: 6, large: 4}}>
-                  <View background="primary" padding="paddingCardMedium" borderRadius="medium" shadow="resting">
-                    <Heading level="h4" variant="titleCardRegular">Course 2</Heading>
-                    <Text variant="content">Chemistry 201</Text>
-                    <Text variant="contentSmall" color="warning">In Progress</Text>
-                  </View>
-                </Grid.Col>
-                <Grid.Col width={{medium: 12, large: 4}}>
-                  <View background="secondary" padding="paddingCardMedium" borderRadius="medium">
-                    <Heading level="h4" variant="titleCardRegular">Add Course</Heading>
-                    <Text variant="content">Browse available courses</Text>
-                  </View>
-                </Grid.Col>
-              </Grid.Row>
-            </Grid>
-          </Flex>
-
-          {/* Header with Actions */}
-          <Flex as="div" direction="column" gap="moduleElements">
-            <View as="div">
-              <Heading level="h3" variant="titleModule">
-                Header with Actions
-              </Heading>
-              <Text variant="content">
-                Auto-width columns for flexible layouts
-              </Text>
-            </View>
-            
-            <View 
-              as="div" 
-              background="primary" 
-              padding="paddingCardMedium" 
-              borderRadius="medium"
-              borderWidth="small"
-              borderColor="secondary"
-            >
-              <Grid hAlign="space-between" vAlign="middle" colSpacing="medium">
+        <View as="div" background="secondary" padding="paddingCardLarge" borderRadius="medium">
+          <Flex direction="column" gap="sectionElements">
+            {/* Primary Cards */}
+            <View>
+              <View as="div" margin="0 0 moduleElements 0">
+                <Heading level="h5" variant="label">Primary Cards (White Background)</Heading>
+              </View>
+              <Grid startAt="medium" vAlign="top" colSpacing="medium">
                 <Grid.Row>
-                  <Grid.Col>
-                    <Heading level="h4" variant="titleCardRegular">Dashboard Section</Heading>
+                  <Grid.Col width={4}>
+                    <View as="div" background="primary" padding="paddingCardMedium" borderRadius="medium" borderWidth="small" borderColor="secondary">
+                      <Flex direction="column" gap="moduleElements">
+                        <Heading level="h4" variant="titleCardMini">Standard Card</Heading>
+                        <Text variant="contentSmall">Medium padding (16px), secondary border</Text>
+                        <Button size="small">Action</Button>
+                      </Flex>
+                    </View>
                   </Grid.Col>
-                  <Grid.Col width="auto">
-                    <Button>Add New</Button>
+                  <Grid.Col width={4}>
+                    <View as="div" background="primary" padding="paddingCardLarge" borderRadius="medium" borderWidth="small" borderColor="secondary">
+                      <Flex direction="column" gap="moduleElements">
+                        <Heading level="h4" variant="titleCardMini">Large Padding</Heading>
+                        <Text variant="contentSmall">Large padding (24px) for spacious cards</Text>
+                        <Button size="small">Action</Button>
+                      </Flex>
+                    </View>
+                  </Grid.Col>
+                  <Grid.Col width={4}>
+                    <View as="div" background="primary" padding="paddingCardMedium" borderRadius="medium" borderWidth="small" borderColor="primary" shadow="resting">
+                      <Flex direction="column" gap="moduleElements">
+                        <Heading level="h4" variant="titleCardMini">Primary Border + Shadow</Heading>
+                        <Text variant="contentSmall">Emphasized card with primary border and shadow</Text>
+                        <Button size="small" color="primary">Primary Action</Button>
+                      </Flex>
+                    </View>
                   </Grid.Col>
                 </Grid.Row>
               </Grid>
             </View>
-          </Flex>
-        </Flex>
 
-        {/* Nested Card Layout Example */}
-        <Flex as="section" direction="column" gap="sectionElements">
-          <View as="div">
-            <Heading level="h2" variant="titleSection">
-              Nested Card Layout
-            </Heading>
-            <Text variant="descriptionSection">
-              Complex layouts with cards containing other cards
-            </Text>
-          </View>
-          
-          <View 
-            as="div" 
-            background="secondary" 
-            padding="paddingCardLarge" 
-            borderRadius="medium"
-            borderWidth="small"
-            borderColor="primary"
-          >
-            <View as="header" margin="0 0 sectionElements 0">
-              <Heading level="h3" variant="titleModule">
-                Course Module: Cell Biology
-              </Heading>
-              <Text variant="descriptionSection">
-                Complete module with lessons and assignments
-              </Text>
-            </View>
-
-            <Grid colSpacing="medium" rowSpacing="medium">
-              <Grid.Row>
-                <Grid.Col width={6}>
-                  <View background="primary" padding="paddingCardMedium" borderRadius="medium" shadow="resting">
-                    <Heading level="h4" variant="titleCardRegular">Lesson 1</Heading>
-                    <Text variant="content">Cell structure basics</Text>
-                    <Text variant="contentSmall" color="success">Completed</Text>
+            {/* Nested Cards */}
+            <View>
+              <View as="div" margin="0 0 moduleElements 0">
+                <Heading level="h5" variant="label">Nested Cards (Max 2 Levels)</Heading>
+              </View>
+              <View as="div" background="primary" padding="paddingCardLarge" borderRadius="medium" borderWidth="small" borderColor="secondary">
+                <Flex direction="column" gap="sectionElements">
+                  <View>
+                    <Heading level="h4" variant="titleCardMini">Parent Card</Heading>
+                    <Text>This is the outer container card</Text>
                   </View>
-                </Grid.Col>
-                <Grid.Col width={6}>
-                  <View background="primary" padding="paddingCardMedium" borderRadius="medium" shadow="resting">
-                    <Heading level="h4" variant="titleCardRegular">Lesson 2</Heading>
-                    <Text variant="content">Cell division process</Text>
-                    <Text variant="contentSmall" color="warning">In Progress</Text>
+                  <View as="div" background="secondary" padding="paddingCardMedium" borderRadius="medium">
+                    <Flex direction="column" gap="moduleElements">
+                      <Heading level="h5" variant="label">Nested Secondary Card</Heading>
+                      <Text variant="contentSmall">Secondary background for visual hierarchy</Text>
+                      <Button size="small" color="secondary">Nested Action</Button>
+                    </Flex>
                   </View>
-                </Grid.Col>
-              </Grid.Row>
-            </Grid>
-          </View>
-        </Flex>
-
-        {/* Horizontal Layout with Flex */}
-        <Flex as="section" direction="column" gap="sectionElements">
-          <View as="div">
-            <Heading level="h2" variant="titleSection">
-              Horizontal Layout with Flex
-            </Heading>
-            <Text variant="descriptionSection">
-              Using Flex direction="row" with gaps for horizontal layouts - content should NEVER be flush together
-            </Text>
-          </View>
-
-          {/* Button Groups */}
-          <Flex as="div" direction="column" gap="moduleElements">
-            <View as="div">
-              <Heading level="h3" variant="titleModule">
-                Button Groups
-              </Heading>
-              <Text variant="content">
-                Standard and compact button groupings with appropriate spacing
-              </Text>
-            </View>
-            
-            <Grid colSpacing="medium" rowSpacing="medium">
-              <Grid.Row>
-                <Grid.Col width={6}>
-                  <View 
-                    as="div" 
-                    background="primary" 
-                    padding="paddingCardMedium" 
-                    borderRadius="medium"
-                    borderWidth="small"
-                    borderColor="secondary"
-                  >
-                    <Heading level="h4" variant="titleCardRegular">Primary Action Group</Heading>
-                    <Text variant="content">Standard spacing (16px gap):</Text>
-                    <View margin="small 0 0 0">
-                      <Flex as="div" direction="row" gap="medium">
-                        <Button color="primary">Save Changes</Button>
-                        <Button>Cancel</Button>
-                      </Flex>
-                    </View>
-                  </View>
-                </Grid.Col>
-                <Grid.Col width={6}>
-                  <View 
-                    as="div" 
-                    background="primary" 
-                    padding="paddingCardMedium" 
-                    borderRadius="medium"
-                    borderWidth="small"
-                    borderColor="secondary"
-                  >
-                    <Heading level="h4" variant="titleCardRegular">Secondary Action Group</Heading>
-                    <Text variant="content">Compact spacing (12px gap):</Text>
-                    <View margin="small 0 0 0">
-                      <Flex as="div" direction="row" gap="small">
-                        <Button size="small">Edit</Button>
-                        <Button size="small">Copy</Button>
-                        <Button size="small">Delete</Button>
-                      </Flex>
-                    </View>
-                  </View>
-                </Grid.Col>
-              </Grid.Row>
-            </Grid>
-          </Flex>
-
-          {/* Status and Metadata */}
-          <Flex as="div" direction="column" gap="moduleElements">
-            <View as="div">
-              <Heading level="h3" variant="titleModule">
-                Status and Metadata
-              </Heading>
-              <Text variant="content">
-                Compact horizontal layouts for badges, tags, status indicators, and data points
-              </Text>
-            </View>
-            
-            <Grid colSpacing="medium" rowSpacing="medium">
-              <Grid.Row>
-                <Grid.Col width={6}>
-                  <View 
-                    as="div" 
-                    background="secondary" 
-                    padding="paddingCardMedium" 
-                    borderRadius="medium"
-                    borderWidth="small"
-                    borderColor="primary"
-                  >
-                    <Heading level="h4" variant="titleCardRegular">Course Metadata</Heading>
-                    <Text variant="content">Small gap (12px) for data points:</Text>
-                    <View margin="small 0 0 0">
-                      <Flex as="div" direction="row" gap="small" alignItems="center">
-                        <Badge count={24} />
-                        <Text variant="contentSmall">Students</Text>
-                        <Text variant="contentSmall" color="success">Active</Text>
-                        <Text variant="contentSmall">Updated 2 hours ago</Text>
-                      </Flex>
-                    </View>
-                  </View>
-                </Grid.Col>
-                <Grid.Col width={6}>
-                  <View 
-                    as="div" 
-                    background="secondary" 
-                    padding="paddingCardMedium" 
-                    borderRadius="medium"
-                    borderWidth="small"
-                    borderColor="primary"
-                  >
-                    <Heading level="h4" variant="titleCardRegular">User Status</Heading>
-                    <Text variant="content">Avatar with status indicators:</Text>
-                    <View margin="small 0 0 0">
-                      <Flex as="div" direction="row" gap="small" alignItems="center">
-                        <Avatar name="John Doe" size="x-small" />
-                        <Text variant="content">John Doe</Text>
-                        <Text variant="contentSmall" color="success">Online</Text>
-                      </Flex>
-                    </View>
-                  </View>
-                </Grid.Col>
-              </Grid.Row>
-            </Grid>
-          </Flex>
-
-          {/* Card Headers with Actions */}
-          <Flex as="div" direction="column" gap="moduleElements">
-            <View as="div">
-              <Heading level="h3" variant="titleModule">
-                Card Headers with Actions
-              </Heading>
-              <Text variant="content">
-                Flex layouts with space-between alignment for content and actions
-              </Text>
-            </View>
-            
-            <View 
-              as="div" 
-              background="primary" 
-              padding="paddingCardMedium" 
-              borderRadius="medium"
-              shadow="resting"
-            >
-              <Flex as="div" direction="row" justifyItems="space-between" alignItems="start">
-                <View as="div">
-                  <Heading level="h4" variant="titleCardRegular">Assignment Title</Heading>
-                  <Text variant="content">Due: March 15, 2024</Text>
-                  <Flex as="div" direction="row" gap="small" alignItems="center" margin="small 0 0 0">
-                    <Text variant="contentSmall" color="warning">In Progress</Text>
-                    <Text variant="contentSmall">•</Text>
-                    <Text variant="contentSmall">3 submissions</Text>
-                  </Flex>
-                </View>
-                <Flex as="div" direction="row" gap="small">
-                  <Button size="small">Edit</Button>
-                  <IconButton screenReaderLabel="More options">
-                    <IconMoreSolid />
-                  </IconButton>
                 </Flex>
-              </Flex>
+              </View>
             </View>
           </Flex>
+        </View>
+      </View>
 
-          {/* Horizontal Spacing Guidelines */}
-          <Flex as="div" direction="column" gap="moduleElements">
-            <View as="div">
-              <Heading level="h3" variant="titleModule">
-                Horizontal Spacing Guidelines
-              </Heading>
-              <Text variant="content">
-                Visual examples of different gap sizes for various content types
-              </Text>
+      {/* TEXT SPACING RULES SECTION */}
+      <View as="section" margin="0 0 sections 0">
+        <View as="header" margin="0 0 sectionElements 0">
+          <Heading level="h2" variant="titleSection">
+            Text Component Spacing Rules
+          </Heading>
+          <Text variant="descriptionSection">
+            Correct and incorrect ways to handle spacing with Text and Heading components
+          </Text>
+        </View>
+
+        <Grid startAt="medium" vAlign="top" colSpacing="medium">
+          <Grid.Row>
+            <Grid.Col width={6}>
+              <View as="div" background="primary" padding="paddingCardMedium" borderRadius="medium" borderWidth="small" borderColor="secondary" shadow="resting">
+                <View>
+                  <View as="div" margin="0 0 moduleElements 0">
+                    <Heading level="h5" variant="label">✓ Correct - Use Flex Gaps</Heading>
+                  </View>
+                  <Flex direction="column" gap="moduleElements">
+                    <Text variant="contentSmall">Label text</Text>
+                    <Button>Action Button</Button>
+                    <Text variant="contentSmall">Another text element</Text>
+                  </Flex>
+                </View>
+              </View>
+            </Grid.Col>
+            <Grid.Col width={6}>
+              <View as="div" background="primary" padding="paddingCardMedium" borderRadius="medium" borderWidth="small" borderColor="secondary" shadow="resting">
+                <View>
+                  <View as="div" margin="0 0 moduleElements 0">
+                    <Heading level="h5" variant="label">✓ Correct - View Wrappers</Heading>
+                  </View>
+                  <Flex direction="column" gap="moduleElements">
+                    <View margin="0 0 moduleElements 0">
+                      <Text variant="contentSmall">Label with View wrapper</Text>
+                    </View>
+                    <Button>Action Button</Button>
+                  </Flex>
+                </View>
+              </View>
+            </Grid.Col>
+          </Grid.Row>
+        </Grid>
+      </View>
+
+      {/* GRID RESPONSIVE LAYOUTS SECTION */}
+      <View as="section" margin="0 0 sections 0">
+        <View as="header" margin="0 0 sectionElements 0">
+          <Heading level="h2" variant="titleSection">
+            Responsive Grid Layouts
+          </Heading>
+          <Text variant="descriptionSection">
+            Multi-column layouts with proper responsive breakpoints and spacing
+          </Text>
+        </View>
+
+        <View as="div" background="secondary" padding="paddingCardLarge" borderRadius="medium">
+          <Flex direction="column" gap="sectionElements">
+            {/* 2-Column Grid */}
+            <View>
+              <View as="div" margin="0 0 moduleElements 0">
+                <Heading level="h5" variant="label">2-Column Grid (startAt="medium")</Heading>
+              </View>
+              <Grid startAt="medium" vAlign="top" colSpacing="medium">
+                <Grid.Row>
+                  <Grid.Col width={6}>
+                    <View as="div" background="primary" padding="paddingCardMedium" borderRadius="medium" borderWidth="small" borderColor="secondary">
+                      <Flex direction="column" gap="moduleElements">
+                        <Heading level="h4" variant="titleCardMini">Column 1</Heading>
+                        <Text>Equal width columns that stack on small screens</Text>
+                        <Button renderIcon={<IconAddLine />} size="small">Add Item</Button>
+                      </Flex>
+                    </View>
+                  </Grid.Col>
+                  <Grid.Col width={6}>
+                    <View as="div" background="primary" padding="paddingCardMedium" borderRadius="medium" borderWidth="small" borderColor="secondary">
+                      <Flex direction="column" gap="moduleElements">
+                        <Heading level="h4" variant="titleCardMini">Column 2</Heading>
+                        <Text>Responsive layout with medium colSpacing</Text>
+                        <Button renderIcon={<IconEditLine />} size="small" color="secondary">Edit</Button>
+                      </Flex>
+                    </View>
+                  </Grid.Col>
+                </Grid.Row>
+              </Grid>
             </View>
-            
-            <Grid colSpacing="medium" rowSpacing="medium">
+
+            {/* 3-Column Grid */}
+            <View>
+              <View as="div" margin="0 0 moduleElements 0">
+                <Heading level="h5" variant="label">3-Column Grid (startAt="large")</Heading>
+              </View>
+              <Grid startAt="large" vAlign="top" colSpacing="medium">
+                <Grid.Row>
+                  <Grid.Col width={4}>
+                    <View as="div" background="primary" padding="paddingCardMedium" borderRadius="medium" borderWidth="small" borderColor="secondary">
+                      <Flex direction="column" gap="moduleElements">
+                        <Heading level="h5" variant="label">Card 1</Heading>
+                        <Text variant="contentSmall">Stacks on small & medium screens</Text>
+                      </Flex>
+                    </View>
+                  </Grid.Col>
+                  <Grid.Col width={4}>
+                    <View as="div" background="primary" padding="paddingCardMedium" borderRadius="medium" borderWidth="small" borderColor="secondary">
+                      <Flex direction="column" gap="moduleElements">
+                        <Heading level="h5" variant="label">Card 2</Heading>
+                        <Text variant="contentSmall">3-column on large screens only</Text>
+                      </Flex>
+                    </View>
+                  </Grid.Col>
+                  <Grid.Col width={4}>
+                    <View as="div" background="primary" padding="paddingCardMedium" borderRadius="medium" borderWidth="small" borderColor="secondary">
+                      <Flex direction="column" gap="moduleElements">
+                        <Heading level="h5" variant="label">Card 3</Heading>
+                        <Text variant="contentSmall">Equal width layout</Text>
+                      </Flex>
+                    </View>
+                  </Grid.Col>
+                </Grid.Row>
+              </Grid>
+            </View>
+
+            {/* Header with Actions Pattern */}
+            <View>
+              <View as="div" margin="0 0 moduleElements 0">
+                <Heading level="h5" variant="label">Header with Actions (hAlign="space-between")</Heading>
+              </View>
+              <View as="div" background="primary" padding="paddingCardMedium" borderRadius="medium" borderWidth="small" borderColor="secondary">
+                <Grid hAlign="space-between" vAlign="middle">
+                  <Grid.Row>
+                    <Grid.Col>
+                      <Flex direction="column" gap="moduleElements">
+                        <Heading level="h4" variant="titleCardMini">Section Title</Heading>
+                        <Text variant="contentSmall">Section description with actions on the right</Text>
+                      </Flex>
+                    </Grid.Col>
+                    <Grid.Col width="auto">
+                      <Flex gap="moduleElements">
+                        <Button renderIcon={<IconSettingsLine />} size="small" color="secondary">Settings</Button>
+                        <Button renderIcon={<IconAddLine />} size="small">Add</Button>
+                      </Flex>
+                    </Grid.Col>
+                  </Grid.Row>
+                </Grid>
+              </View>
+            </View>
+          </Flex>
+        </View>
+      </View>
+
+      {/* SEMANTIC SPACING TOKENS SECTION */}
+      <View as="section" margin="0 0 sections 0">
+        <View as="header" margin="0 0 sectionElements 0">
+          <Heading level="h2" variant="titleSection">
+            Semantic Spacing Tokens Reference
+          </Heading>
+          <Text variant="descriptionSection">
+            Visual reference for semantic spacing tokens with their pixel values
+          </Text>
+        </View>
+
+        <View as="div" background="primary" padding="paddingCardMedium" borderRadius="medium" borderWidth="small" borderColor="secondary" shadow="resting">
+          <Grid startAt="medium" vAlign="top" colSpacing="medium">
+            <Grid.Row>
+              <Grid.Col width={6}>
+                <Flex direction="column" gap="moduleElements">
+                  <View>
+                    <View as="div" margin="0 0 moduleElements 0">
+                      <Heading level="h5" variant="label">Layout Structure</Heading>
+                    </View>
+                    <Flex direction="column" gap="moduleElements">
+                      <View as="div" background="secondary" padding="sections" borderRadius="medium">
+                        <Text variant="contentSmall"><strong>sections</strong> - 36px - Major page sections</Text>
+                      </View>
+                      <View as="div" background="secondary" padding="sectionElements" borderRadius="medium">
+                        <Text variant="contentSmall"><strong>sectionElements</strong> - 24px - Within sections</Text>
+                      </View>
+                      <View as="div" background="secondary" padding="moduleElements" borderRadius="medium">
+                        <Text variant="contentSmall"><strong>moduleElements</strong> - 16px - Module components</Text>
+                      </View>
+                    </Flex>
+                  </View>
+                </Flex>
+              </Grid.Col>
+              <Grid.Col width={6}>
+                <Flex direction="column" gap="moduleElements">
+                  <View>
+                    <View as="div" margin="0 0 moduleElements 0">
+                      <Heading level="h5" variant="label">Container Padding</Heading>
+                    </View>
+                    <Flex direction="column" gap="moduleElements">
+                      <View as="div" background="secondary" padding="paddingCardLarge" borderRadius="medium">
+                        <Text variant="contentSmall"><strong>paddingCardLarge</strong> - 24px</Text>
+                      </View>
+                      <View as="div" background="secondary" padding="paddingCardMedium" borderRadius="medium">
+                        <Text variant="contentSmall"><strong>paddingCardMedium</strong> - 16px</Text>
+                      </View>
+                      <View as="div" background="secondary" padding="paddingCardSmall" borderRadius="medium">
+                        <Text variant="contentSmall"><strong>paddingCardSmall</strong> - 12px</Text>
+                      </View>
+                    </Flex>
+                  </View>
+                </Flex>
+              </Grid.Col>
+            </Grid.Row>
+          </Grid>
+        </View>
+      </View>
+
+      {/* INTERACTIVE EXAMPLE SECTION */}
+      <View as="section" margin="0 0 sections 0">
+        <View as="header" margin="0 0 sectionElements 0">
+          <Heading level="h2" variant="titleSection">
+            Interactive Layout Example
+          </Heading>
+          <Text variant="descriptionSection">
+            Dynamic layout that demonstrates proper spacing and responsive behavior
+          </Text>
+        </View>
+
+        <View as="div" background="primary" padding="paddingCardMedium" borderRadius="medium" borderWidth="small" borderColor="secondary" shadow="resting">
+          <Flex direction="column" gap="sectionElements">
+            <Grid hAlign="space-between" vAlign="middle">
               <Grid.Row>
-                <Grid.Col width={4}>
-                  <View 
-                    as="div" 
-                    background="primary" 
-                    padding="paddingCardMedium" 
-                    borderRadius="medium"
-                    borderWidth="small"
-                    borderColor="secondary"
-                  >
-                    <Heading level="h4" variant="titleCardRegular">Large Gap (24px)</Heading>
-                    <Text variant="content">Major content sections:</Text>
-                    <View margin="small 0 0 0">
-                      <Flex as="div" direction="row" gap="large">
-                        <Button size="small">Section A</Button>
-                        <Button size="small">Section B</Button>
-                      </Flex>
-                    </View>
-                  </View>
+                <Grid.Col>
+                  <Heading level="h4" variant="titleCardMini">Dynamic Content Area</Heading>
                 </Grid.Col>
-                <Grid.Col width={4}>
-                  <View 
-                    as="div" 
-                    background="primary" 
-                    padding="paddingCardMedium" 
-                    borderRadius="medium"
-                    borderWidth="small"
-                    borderColor="secondary"
+                <Grid.Col width="auto">
+                  <Button 
+                    onClick={() => setInteractiveState(!interactiveState)}
+                    color={interactiveState ? "success" : "primary"}
+                    size="small"
                   >
-                    <Heading level="h4" variant="titleCardRegular">Medium Gap (16px)</Heading>
-                    <Text variant="content">Standard elements:</Text>
-                    <View margin="small 0 0 0">
-                      <Flex as="div" direction="row" gap="medium">
-                        <Button size="small">Save</Button>
-                        <Button size="small">Cancel</Button>
-                      </Flex>
-                    </View>
-                  </View>
-                </Grid.Col>
-                <Grid.Col width={4}>
-                  <View 
-                    as="div" 
-                    background="primary" 
-                    padding="paddingCardMedium" 
-                    borderRadius="medium"
-                    borderWidth="small"
-                    borderColor="secondary"
-                  >
-                    <Heading level="h4" variant="titleCardRegular">Small Gap (12px)</Heading>
-                    <Text variant="content">Compact elements:</Text>
-                    <View margin="small 0 0 0">
-                      <Flex as="div" direction="row" gap="small">
-                        <Badge count={5} />
-                        <Text variant="contentSmall">Status</Text>
-                      </Flex>
-                    </View>
-                  </View>
+                    {interactiveState ? "Hide Details" : "Show Details"}
+                  </Button>
                 </Grid.Col>
               </Grid.Row>
             </Grid>
+            
+            {interactiveState && (
+              <View as="div" background="secondary" padding="paddingCardMedium" borderRadius="medium">
+                <Flex direction="column" gap="moduleElements">
+                  <Text>This content appears with proper semantic spacing using moduleElements gap.</Text>
+                  <Text variant="contentSmall">Notice how the layout maintains consistent spacing patterns.</Text>
+                  <Flex gap="moduleElements">
+                    <Button size="small" renderIcon={<IconAddLine />}>Add</Button>
+                    <Button size="small" color="secondary" renderIcon={<IconEditLine />}>Edit</Button>
+                  </Flex>
+                </Flex>
+              </View>
+            )}
           </Flex>
-        </Flex>
+        </View>
+      </View>
 
-        {/* Spacing Reference */}
-        <Flex as="section" direction="column" gap="sectionElements">
-          <View as="div">
-            <Heading level="h2" variant="titleSection">
-              Spacing Reference
-            </Heading>
-            <Text variant="descriptionSection">
-              Semantic spacing tokens for consistent layouts
-            </Text>
-          </View>
-          
-          <Grid colSpacing="medium" rowSpacing="medium">
-            <Grid.Row>
-              <Grid.Col width={4}>
-                <View 
-                  as="div" 
-                  background="primary" 
-                  padding="paddingCardMedium" 
-                  borderRadius="medium"
-                  borderWidth="small"
-                  borderColor="secondary"
-                >
-                  <Heading level="h4" variant="titleCardRegular">Semantic Spacing</Heading>
-                  <Text variant="content">sections: 36px</Text>
-                  <Text variant="content">sectionElements: 24px</Text>
-                  <Text variant="content">moduleElements: 16px</Text>
-                  <Text variant="content">small: 8px</Text>
-                  <Text variant="content">medium: 16px</Text>
-                  <Text variant="content">large: 24px</Text>
-                </View>
-              </Grid.Col>
-              <Grid.Col width={4}>
-                <View 
-                  as="div" 
-                  background="primary" 
-                  padding="paddingCardMedium" 
-                  borderRadius="medium"
-                  borderWidth="small"
-                  borderColor="secondary"
-                >
-                  <Heading level="h4" variant="titleCardRegular">Padding Tokens</Heading>
-                  <Text variant="content">paddingCardSmall: 12px</Text>
-                  <Text variant="content">paddingCardMedium: 16px</Text>
-                  <Text variant="content">paddingCardLarge: 24px</Text>
-                </View>
-              </Grid.Col>
-              <Grid.Col width={4}>
-                <View 
-                  as="div" 
-                  background="primary" 
-                  padding="paddingCardMedium" 
-                  borderRadius="medium"
-                  borderWidth="small"
-                  borderColor="secondary"
-                >
-                  <Heading level="h4" variant="titleCardRegular">Usage Guidelines</Heading>
-                  <Text variant="content">large (24px): Major sections</Text>
-                  <Text variant="content">medium (16px): Standard elements</Text>
-                  <Text variant="content">small (12px): Compact elements</Text>
-                  <Text variant="content" color="danger">Never: Flush content together</Text>
-                </View>
-              </Grid.Col>
-            </Grid.Row>
-          </Grid>
-        </Flex>
+      {/* USAGE GUIDELINES SECTION */}
+      <View as="section" margin="0 0 sections 0">
+        <View as="header" margin="0 0 sectionElements 0">
+          <Heading level="h2" variant="titleSection">
+            Layout Best Practices
+          </Heading>
+          <Text variant="descriptionSection">
+            Essential guidelines for creating consistent, maintainable layouts
+          </Text>
+        </View>
 
-        {/* Best Practices */}
-        <Flex as="section" direction="column" gap="sectionElements">
-          <View as="div">
-            <Heading level="h2" variant="titleSection">
-              Best Practices
-            </Heading>
-            <Text variant="descriptionSection">
-              Key guidelines for implementing consistent layouts
-            </Text>
-          </View>
-          
-          <Grid colSpacing="medium" rowSpacing="medium">
-            <Grid.Row>
-              <Grid.Col width={6}>
-                <View 
-                  as="div" 
-                  background="primary" 
-                  padding="paddingCardMedium" 
-                  borderRadius="medium"
-                  borderWidth="small"
-                  borderColor="secondary"
-                >
-                  <Heading level="h4" variant="titleCardRegular">Do ✅</Heading>
-                  <Flex as="div" direction="column" gap="small">
-                    <Text variant="content">• Follow semantic heading hierarchy (h1 → h2 → h3 → h4 → h5)</Text>
-                    <Text variant="content">• Always wrap headings and descriptions in containers</Text>
-                    <Text variant="content">• Use appropriate card variants based on content importance</Text>
-                    <Text variant="content">• Use Grid spacing properties instead of individual margins</Text>
-                    <Text variant="content">• Apply consistent border radius (borderRadius="medium")</Text>
-                    <Text variant="content">• Use semantic spacing tokens throughout</Text>
-                    <Text variant="content">• Use Flex direction="row" with gaps for all horizontal layouts</Text>
-                    <Text variant="content">• Apply appropriate gap sizes: medium (16px) for standard elements, small (12px) for compact elements</Text>
+        <Grid startAt="medium" vAlign="top" colSpacing="medium">
+          <Grid.Row>
+            <Grid.Col width={6}>
+              <View as="div" background="primary" padding="paddingCardMedium" borderRadius="medium" borderWidth="small" borderColor="secondary" shadow="resting">
+                <View>
+                  <View as="div" margin="0 0 moduleElements 0">
+                    <Heading level="h5" variant="label">Always Do ✓</Heading>
+                  </View>
+                  <Flex direction="column" gap="moduleElements">
+                    <Text>• Use semantic spacing tokens (sections, sectionElements, moduleElements)</Text>
+                    <Text>• Add as="div" to all card View components</Text>
+                    <Text>• Use Flex gaps instead of margins for spacing</Text>
+                    <Text>• Apply consistent borderRadius="medium" to all cards</Text>
+                    <Text>• Wrap related headings and descriptions together</Text>
                   </Flex>
                 </View>
-              </Grid.Col>
-              <Grid.Col width={6}>
-                <View 
-                  as="div" 
-                  background="primary" 
-                  padding="paddingCardMedium" 
-                  borderRadius="medium"
-                  borderWidth="small"
-                  borderColor="secondary"
-                >
-                  <Heading level="h4" variant="titleCardRegular">Don't ❌</Heading>
-                  <Flex as="div" direction="column" gap="small">
-                    <Text variant="content">• Skip heading levels for visual purposes</Text>
-                    <Text variant="content">• Apply margins directly to Text components</Text>
-                    <Text variant="content">• Mix different padding tokens within the same layout</Text>
-                    <Text variant="content">• Nest cards more than 2 levels deep</Text>
-                    <Text variant="content">• Use custom border radius values</Text>
-                    <Text variant="content">• Use primary and secondary backgrounds inconsistently</Text>
-                    <Text variant="content">• Place content flush together without spacing</Text>
-                    <Text variant="content">• Use margins for horizontal spacing - use Flex gaps instead</Text>
+              </View>
+            </Grid.Col>
+            <Grid.Col width={6}>
+              <View as="div" background="primary" padding="paddingCardMedium" borderRadius="medium" borderWidth="small" borderColor="secondary" shadow="resting">
+                <View>
+                  <View as="div" margin="0 0 moduleElements 0">
+                    <Heading level="h5" variant="label">Never Do ✗</Heading>
+                  </View>
+                  <Flex direction="column" gap="moduleElements">
+                    <Text>• Apply margins directly to Text or Heading components</Text>
+                    <Text>• Place content flush together without gaps</Text>
+                    <Text>• Nest cards more than 2 levels deep</Text>
+                    <Text>• Mix different padding tokens in the same layout</Text>
+                    <Text>• Skip heading levels for visual effect</Text>
                   </Flex>
                 </View>
-              </Grid.Col>
-            </Grid.Row>
-          </Grid>
-        </Flex>
-
-      </Flex>
-    </View>
+              </View>
+            </Grid.Col>
+          </Grid.Row>
+        </Grid>
+      </View>
+        </View>
+        )
+      }}
+    </Responsive>
   )
 }

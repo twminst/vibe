@@ -239,7 +239,7 @@ export default function TemplatePattern() {
               <Grid startAt="medium" vAlign="top" colSpacing="medium">
                 <Grid.Row>
                   <Grid.Col width={6}>
-                    <View as="div" background="primary" padding="paddingCardMedium" borderRadius="small" borderWidth="small" borderColor="secondary">
+                    <View as="div" background="primary" padding="paddingCardMedium" borderRadius="medium" borderWidth="small" borderColor="secondary">
                       <Flex direction="column" gap="moduleElements">
                         <Heading level="h5" variant="label">Column 1</Heading>
                         <Text>Column 1 Content</Text>
@@ -248,7 +248,7 @@ export default function TemplatePattern() {
                     </View>
                   </Grid.Col>
                   <Grid.Col width={6}>
-                    <View as="div" background="primary" padding="paddingCardMedium" borderRadius="small" borderWidth="small" borderColor="secondary">
+                    <View as="div" background="primary" padding="paddingCardMedium" borderRadius="medium" borderWidth="small" borderColor="secondary">
                       <Flex direction="column" gap="moduleElements">
                         <Heading level="h5" variant="label">Column 2</Heading>
                         <Text>Column 2 Content</Text>
@@ -268,7 +268,7 @@ export default function TemplatePattern() {
               <Grid startAt="large" vAlign="top" colSpacing="medium">
                 <Grid.Row>
                   <Grid.Col width={4}>
-                    <View as="div" background="primary" padding="paddingCardMedium" borderRadius="small" borderWidth="small" borderColor="secondary">
+                    <View as="div" background="primary" padding="paddingCardMedium" borderRadius="medium" borderWidth="small" borderColor="secondary">
                       <Flex direction="column" gap="moduleElements">
                         <Heading level="h5" variant="label">Column 1</Heading>
                         <Text>Column 1</Text>
@@ -277,7 +277,7 @@ export default function TemplatePattern() {
                     </View>
                   </Grid.Col>
                   <Grid.Col width={4}>
-                    <View as="div" background="primary" padding="paddingCardMedium" borderRadius="small" borderWidth="small" borderColor="secondary">
+                    <View as="div" background="primary" padding="paddingCardMedium" borderRadius="medium" borderWidth="small" borderColor="secondary">
                       <Flex direction="column" gap="moduleElements">
                         <Heading level="h5" variant="label">Column 2</Heading>
                         <Text>Column 2</Text>
@@ -286,7 +286,7 @@ export default function TemplatePattern() {
                     </View>
                   </Grid.Col>
                   <Grid.Col width={4}>
-                    <View as="div" background="primary" padding="paddingCardMedium" borderRadius="small" borderWidth="small" borderColor="secondary">
+                    <View as="div" background="primary" padding="paddingCardMedium" borderRadius="medium" borderWidth="small" borderColor="secondary">
                       <Flex direction="column" gap="moduleElements">
                         <Heading level="h5" variant="label">Column 3</Heading>
                         <Text>Column 3</Text>
@@ -306,7 +306,7 @@ export default function TemplatePattern() {
               <Grid startAt="medium" vAlign="top" colSpacing="medium">
                 <Grid.Row>
                   <Grid.Col width={8}>
-                    <View as="div" background="primary" padding="paddingCardMedium" borderRadius="small" borderWidth="small" borderColor="secondary">
+                    <View as="div" background="primary" padding="paddingCardMedium" borderRadius="medium" borderWidth="small" borderColor="secondary">
                       <Flex direction="column" gap="moduleElements">
                         <Heading level="h5" variant="label">Main Content</Heading>
                         <Text>Main Content (2/3 width)</Text>
@@ -316,7 +316,7 @@ export default function TemplatePattern() {
                     </View>
                   </Grid.Col>
                   <Grid.Col width={4}>
-                    <View as="div" background="primary" padding="paddingCardMedium" borderRadius="small" borderWidth="small" borderColor="secondary">
+                    <View as="div" background="primary" padding="paddingCardMedium" borderRadius="medium" borderWidth="small" borderColor="secondary">
                       <Flex direction="column" gap="moduleElements">
                         <Heading level="h5" variant="label">Sidebar</Heading>
                         <Text>Sidebar (1/3 width)</Text>

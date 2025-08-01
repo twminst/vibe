@@ -9,7 +9,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Spacing and layout logic don't align with typical spacing scales. Margins, padding, alignment often require verification.
 - Component combos (like buttons with icons) may render unexpectedly unless built from verified patterns.
 - Don’t rely on assumptions drawn from other UI frameworks. Always consult Instructure UI documentation before generating layout or style code.
-- A "Card" refers to any **view** element with background, padding, borderRadius, borderWidth, shadow, and/or margin properties and **should* have the as="div" property applied. There is no formal InstUI concept of a Card. 
+- A "Card" refers to any **view** element with background, padding, borderRadius, borderWidth, shadow, and/or margin properties and **should* have the as="div" property applied. There is no formal InstUI concept of a Card.
+- **Card Border Radius Standard**: ALL cards must use `borderRadius="medium"` for consistency across the prototype system. 
 
 
 ## Avoiding Common Layout Mistakes
@@ -33,7 +34,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - View wrappers for margins when Flex gaps aren't suitable
 - Never apply margins directly to text components
 
-
+## Always Test
+- Be sure to test your implementation and fix any errors
 
 ## Development Commands
 

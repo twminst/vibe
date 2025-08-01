@@ -356,34 +356,30 @@ export default function IconsPattern() {
               <View as="div" margin="0 0 moduleElements 0">
                 <Heading level="h5" variant="label">Assignment Empty State</Heading>
               </View>
-              <View textAlign="center" padding="x-large">
-                <View margin="0 0 medium 0" textAlign="center">
-                  <IconAssignmentLine size="large" color="secondary" />
-                </View>
-                <Heading level="h4" margin="0 0 small 0">
+              <Flex direction="column" alignItems="center" gap="medium" padding="x-large">
+                <IconAssignmentLine size="large" color="secondary" />
+                <Heading level="h4">
                   No assignments yet
                 </Heading>
                 <Text size="small" color="secondary">
                   Create your first assignment to get started
                 </Text>
-              </View>
+              </Flex>
             </View>
 
             <View>
               <View as="div" margin="0 0 moduleElements 0">
                 <Heading level="h5" variant="label">Discussion Empty State</Heading>
               </View>
-              <View textAlign="center" padding="x-large">
-                <View margin="0 0 medium 0" textAlign="center">
-                  <IconDiscussionLine size="large" color="secondary" />
-                </View>
-                <Heading level="h4" margin="0 0 small 0">
+              <Flex direction="column" alignItems="center" gap="medium" padding="x-large">
+                <IconDiscussionLine size="large" color="secondary" />
+                <Heading level="h4">
                   No discussions started
                 </Heading>
                 <Text size="small" color="secondary">
                   Begin a conversation with your students
                 </Text>
-              </View>
+              </Flex>
             </View>
           </Flex>
         </View>

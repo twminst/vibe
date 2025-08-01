@@ -3,16 +3,22 @@ import { Link as RouterLink } from 'react-router-dom'
 
 const patterns = [
   { name: 'Template', path: '/patterns/template', description: 'Documentation template for creating consistent UI pattern pages' },
-  { name: 'Layout', path: '/patterns/layout', description: '(OUTDATED) Content structure and hierarchy best practices' },
+  { name: 'Layout', path: '/patterns/layout', description: 'Content structure and hierarchy best practices' },
   { name: 'Text', path: '/patterns/text', description: 'Semantic text variants and accessibility guidelines' },
   { name: 'Colors', path: '/patterns/colors', description: 'Semantic color tokens for branding, accessibility, and consistent theming' },
   { name: 'Buttons', path: '/patterns/buttons', description: 'Interactive button components with semantic colors, sizes, and proper spacing' },
   { name: 'Icons', path: '/patterns/icons', description: 'Icon usage guidelines with semantic sizing, colors, and accessibility practices' },
+  { name: 'Status Components', path: '/patterns/status-components', description: 'Visual indicators for status, categorization, and counts using Pill, Tag, and Badge components' },
+  { name: 'Forms', path: '/patterns/forms', description: 'Comprehensive form components with validation patterns, accessibility, and Canvas-specific examples' },
+  { name: 'Tables', path: '/patterns/tables', description: 'Comprehensive table implementation with sorting, selection, and responsive design' },
+  { name: 'Content Switching', path: '/patterns/content-switching', description: 'Navigation patterns using pagination, tabs, and toggle details for content organization' },
   // Add new patterns here
 ]
 
 const prototypes = [
   { name: 'Sample', path: '/prototypes/sample', description: 'Original no-context test' },
+  { name: 'Student Dashboard', path: '/prototypes/student-dashboard', description: 'Student-focused dashboard for coursework and recent grades' },
+  { name: 'Table Header Test', path: '/prototypes/table-header-test', description: 'Testing solutions for InstUI Table header styling in stacked mode' },
   // Add new prototypes here
 ]
 
